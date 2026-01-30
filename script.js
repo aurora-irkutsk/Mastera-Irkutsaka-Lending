@@ -2,19 +2,20 @@
 // АНИМАЦИЯ НАБЕГАЮЩИХ ЦИФР
 // ============================================
 
-function animateCounter(element, target, duration = 3000) {
+function animateCounter(element, target, duration = 8000) {
     let start = 0;
     const startTime = performance.now();
     const isPlus = target === 500 || target === 50;
     
-    function easeOutCubic(t) {
-        return 1 - Math.pow(1 - t, 3); // Сильное замедление
+    // Функция плавного замедления к концу
+    function easeOutQuad(t) {
+        return t * (2 - t);
     }
     
     function animate(currentTime) {
         const elapsed = currentTime - startTime;
         const progress = Math.min(elapsed / duration, 1);
-        const easedProgress = easeOutCubic(progress);
+        const easedProgress = easeOutQuad(progress);
         
         start = Math.floor(easedProgress * target);
         
@@ -59,7 +60,7 @@ const observer = new IntersectionObserver((entries) => {
                 // Запускаем анимацию только один раз
                 if (!entry.target.dataset.animated) {
                     entry.target.dataset.animated = 'true';
-                    animateCounter(entry.target, targetNumber, 2000);
+                    animateCounter(entry.target, targetNumber, 6000);
                 }
             }
         }
