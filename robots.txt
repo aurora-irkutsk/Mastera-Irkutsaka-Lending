@@ -1,0 +1,22 @@
+# robots.txt для Мастера Иркутска
+
+User-agent: *
+Allow: /
+
+# Яндекс
+User-agent: Yandex
+Allow: /
+
+# Google
+User-agent: Googlebot
+Allow: /
+
+# Запрещаем индексацию служебных файлов
+Disallow: /style.css
+Disallow: /script.js
+
+# Указываем путь к карте сайта
+Sitemap: https://yourdomain.com/sitemap.xml
+
+# Время ожидания между запросами (в секундах)
+Crawl-delay: 1

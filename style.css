@@ -1,0 +1,433 @@
+:root {
+    --construction-yellow: #FDB913;
+    --construction-orange: #FF6B35;
+    --dark-concrete: #1a1a1a;
+    --light-concrete: #2a2a2a;
+    --steel-gray: #4a4a4a;
+    --warning-red: #E63946;
+    --safety-green: #06FFA5;
+    --white: #FAFAFA;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--dark-concrete);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Декоративные элементы фона */
+.bg-pattern {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, var(--construction-yellow) 35px, var(--construction-yellow) 36px),
+        repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--construction-yellow) 35px, var(--construction-yellow) 36px);
+}
+
+/* Header */
+header {
+    position: relative;
+    padding: 2rem 5%;
+    background: linear-gradient(135deg, var(--light-concrete), var(--dark-concrete));
+    border-bottom: 4px solid var(--construction-yellow);
+    z-index: 10;
+}
+
+.logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    animation: slideDown 0.8s ease-out;
+    line-height: 1;
+}
+
+.subtitle {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--safety-green);
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    padding: 4rem 5% 6rem;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+}
+
+.hero-title .highlight {
+    color: var(--construction-yellow);
+    display: block;
+    font-size: 4.5rem;
+    margin-top: 0.5rem;
+}
+
+.hero-description {
+    font-size: 1.3rem;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #ccc;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 0.7s backwards;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    color: var(--construction-orange);
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Sections */
+.sections-container {
+    position: relative;
+    z-index: 1;
+    padding: 0 5% 4rem;
+}
+
+.split-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.section-card {
+    background: var(--light-concrete);
+    padding: 3rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: scaleIn 0.6s ease-out backwards;
+}
+
+.section-card:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.section-card:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--construction-yellow), var(--construction-orange));
+}
+
+.section-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(253, 185, 19, 0.2);
+}
+
+.section-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.section-card:nth-child(2) .section-icon {
+    animation-delay: 0.5s;
+}
+
+.section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--construction-yellow);
+}
+
+.section-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.benefits-list {
+    list-style: none;
+    margin-bottom: 2rem;
+}
+
+.benefits-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--steel-gray);
+    font-size: 1rem;
+    position: relative;
+    padding-left: 2rem;
+}
+
+.benefits-list li::before {
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--construction-orange);
+    font-size: 1.5rem;
+}
+
+/* CTA Buttons */
+.cta-button {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cta-masters {
+    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
+    color: var(--dark-concrete);
+}
+
+.cta-clients {
+    background: linear-gradient(135deg, var(--construction-orange), var(--warning-red));
+    color: var(--white);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.cta-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(253, 185, 19, 0.4);
+}
+
+.cta-button span {
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer CTA */
+.footer-cta {
+    text-align: center;
+    padding: 5rem 5%;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-cta-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.footer-cta-text {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Footer */
+footer {
+    background: var(--light-concrete);
+    padding: 2rem 5%;
+    text-align: center;
+    border-top: 4px solid var(--construction-yellow);
+    position: relative;
+    z-index: 1;
+}
+
+.footer-text {
+    color: #999;
+    font-size: 0.9rem;
+}
+
+.footer-link {
+    color: var(--construction-yellow);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--construction-orange);
+}
+
+/* Animations */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Responsive */
+@media (max-width: 968px) {
+    .split-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .hero-title .highlight {
+        font-size: 3.5rem;
+    }
+    
+    .logo {
+        font-size: 2.5rem;
+    }
+    
+    .stats {
+        gap: 2rem;
+    }
+    
+    .section-card {
+        padding: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title .highlight {
+        font-size: 2.5rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+}
