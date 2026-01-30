@@ -1,28 +1,16 @@
-// Плавная прокрутка
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-    });
-});
+// ============================================
+// АНИМАЦИЯ НАБЕГАЮЩИХ ЦИФР
+// ============================================
 
-// Анимация набегающих цифр
 function animateCounter(element, target, duration = 2000) {
     let start = 0;
     const increment = target / (duration / 16); // 60 FPS
     const isPlus = target === 500 || target === 50; // Для 500+ и 50+
-    const targetNumber = isPlus ? target : target;
     
     const timer = setInterval(() => {
         start += increment;
-        if (start >= targetNumber) {
-            element.textContent = isPlus ? `${targetNumber}+` : target;
+        if (start >= target) {
+            element.textContent = isPlus ? `${target}+` : target;
             clearInterval(timer);
         } else {
             element.textContent = isPlus ? `${Math.floor(start)}+` : Math.floor(start);
@@ -67,8 +55,44 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Наблюдаем за статистикой
+// ============================================
+// ПЛАВНАЯ ПРОКРУТКА ДЛЯ ЯКОРНЫХ ССЫЛОК
+// ============================================
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+
+// ============================================
+// КНОПКА ПРОКРУТКИ НАВЕРХ
+// ============================================
+
+const scrollBtn = document.createElement('button');
+scrollBtn.textContent = '▲';
+scrollBtn.className = 'scroll-top';
+scrollBtn.setAttribute('aria-label', 'Прокрутить наверх');
+scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+document.body.appendChild(scrollBtn);
+
+window.addEventListener('scroll', () => {
+    scrollBtn.style.display = window.scrollY > 400 ? 'block' : 'none';
+});
+
+// ============================================
+// ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+// ============================================
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Наблюдаем за статистикой для анимации цифр
     document.querySelectorAll('.stat-number').forEach(stat => {
         observer.observe(stat);
     });
