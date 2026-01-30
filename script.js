@@ -2,22 +2,32 @@
 // АНИМАЦИЯ НАБЕГАЮЩИХ ЦИФР
 // ============================================
 
-function animateCounter(element, target, duration = 2000) {
+function animateCounter(element, target, duration = 2500) {
     let start = 0;
-    const increment = target / (duration / 16); // 60 FPS
-    const isPlus = target === 500 || target === 50; // Для 500+ и 50+
+    const startTime = performance.now();
+    const isPlus = target === 500 || target === 50;
     
-    const timer = setInterval(() => {
-        start += increment;
-        if (start >= target) {
-            element.textContent = isPlus ? `${target}+` : target;
-            clearInterval(timer);
+    function easeOutQuad(t) {
+        return t * (2 - t); // Замедление к концу
+    }
+    
+    function animate(currentTime) {
+        const elapsed = currentTime - startTime;
+        const progress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuad(progress);
+        
+        start = Math.floor(easedProgress * target);
+        
+        if (progress < 1) {
+            element.textContent = isPlus ? `${start}+` : start;
+            requestAnimationFrame(animate);
         } else {
-            element.textContent = isPlus ? `${Math.floor(start)}+` : Math.floor(start);
+            element.textContent = isPlus ? `${target}+` : target;
         }
-    }, 16);
+    }
+    
+    requestAnimationFrame(animate);
 }
-
 // Наблюдатель для анимации при появлении
 const observerOptions = {
     threshold: 0.3,
