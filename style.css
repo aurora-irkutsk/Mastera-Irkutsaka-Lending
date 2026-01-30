@@ -424,7 +424,7 @@ footer {
     }
     
     .subtitle {
-        font-size: clamp(1rem, 3.5vw, 1.8rem);
+        font-size: clamp(0.8rem, 3.5vw, 1.5rem);
         letter-spacing: 1px;
     }
     
