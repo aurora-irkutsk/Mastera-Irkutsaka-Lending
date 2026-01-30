@@ -433,7 +433,7 @@ footer {
     }
     
     .hero-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
         line-height: 1.2;
         margin-bottom: 1.2rem;
     }
@@ -493,7 +493,7 @@ footer {
     
     /* Адаптивный размер шрифта: 
        минимум 13px, среднее 4.5% от ширины экрана, максимум 18px */
-    font-size: clamp(13px, 4.5vw, 18px);
+    font-size: clamp(13px, 2.5vw, 18px);
     
     /* Уменьшаем боковые отступы, чтобы текст влез на маленьких экранах */
     padding: 0.8rem 1.2rem;
