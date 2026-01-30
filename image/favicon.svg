@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Синий круг фон -->
+  <circle cx="50" cy="50" r="48" fill="#3B8DC7"/>
+  
+  <!-- Отвертка (левая, диагональ) -->
+  <g transform="rotate(-45 50 50)">
+    <rect x="20" y="45" width="35" height="10" rx="2" fill="#FFFFFF"/>
+    <rect x="55" y="46" width="8" height="8" rx="1" fill="#FFFFFF"/>
+  </g>
+  
+  <!-- Гаечный ключ (правая, диагональ) -->
+  <g transform="rotate(45 50 50)">
+    <!-- Рукоятка -->
+    <rect x="45" y="20" width="10" height="35" rx="2" fill="#FFFFFF"/>
+    <!-- Головка ключа -->
+    <path d="M 45 55 L 45 63 L 42 63 L 42 66 L 45 66 L 45 68 L 55 68 L 55 66 L 58 66 L 58 63 L 55 63 L 55 55 Z" fill="#FFFFFF"/>
+  </g>
+</svg>
