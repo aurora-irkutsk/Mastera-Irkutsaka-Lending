@@ -189,7 +189,7 @@ window.addEventListener('load', () => {
                     stat.dataset.animated = 'true';
                     
                     setTimeout(() => {
-                        animateCounter(stat, targetNumber, 6000, (currentValue, progress) => {
+                        animateCounter(stat, targetNumber, 3500, (currentValue, progress) => {
                             if (currentValue >= 498 && !is247Shown && element247) {
                                 is247Shown = true;
                                 fadeIn247(element247);
@@ -202,7 +202,7 @@ window.addEventListener('load', () => {
                     stat.dataset.animated = 'true';
                     
                     setTimeout(() => {
-                        animateCounter(stat, targetNumber, 6000);
+                        animateCounter(stat, targetNumber, 3500);
                     }, 100);
                     
                 } else if (text === '24/7' || text.includes('24')) {
