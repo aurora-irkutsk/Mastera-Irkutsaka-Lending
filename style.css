@@ -439,7 +439,7 @@ footer {
     }
     
     .hero-title .highlight {
-        font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+        font-size: clamp(1.2rem, 4.5vw, 2rem);
         margin-top: 0.2rem;
     }
     
