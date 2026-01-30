@@ -1,3 +1,6 @@
+/* ============================================
+   CSS ПЕРЕМЕННЫЕ
+   ============================================ */
 :root {
     --construction-yellow: #FDB913;
     --construction-orange: #FF6B35;
@@ -9,6 +12,9 @@
     --white: #FAFAFA;
 }
 
+/* ============================================
+   БАЗОВЫЕ СТИЛИ
+   ============================================ */
 * {
     margin: 0;
     padding: 0;
@@ -23,7 +29,9 @@ body {
     line-height: 1.6;
 }
 
-/* Декоративные элементы фона */
+/* ============================================
+   ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ФОНА
+   ============================================ */
 .bg-pattern {
     position: fixed;
     top: 0;
@@ -38,7 +46,9 @@ body {
         repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--construction-yellow) 35px, var(--construction-yellow) 36px);
 }
 
-/* Header */
+/* ============================================
+   HEADER
+   ============================================ */
 header {
     position: relative;
     padding: 2rem 5%;
@@ -70,7 +80,9 @@ header {
     animation: fadeIn 1s ease-out 0.3s backwards;
 }
 
-/* Hero Section */
+/* ============================================
+   HERO SECTION
+   ============================================ */
 .hero {
     position: relative;
     padding: 4rem 5% 6rem;
@@ -101,6 +113,9 @@ header {
     animation: fadeIn 1s ease-out 0.5s backwards;
 }
 
+/* ============================================
+   СТАТИСТИКА
+   ============================================ */
 .stats {
     display: flex;
     justify-content: center;
@@ -128,7 +143,9 @@ header {
     letter-spacing: 1px;
 }
 
-/* Sections */
+/* ============================================
+   СЕКЦИИ (ДЛЯ МАСТЕРОВ / ДЛЯ КЛИЕНТОВ)
+   ============================================ */
 .sections-container {
     position: relative;
     z-index: 1;
@@ -199,6 +216,9 @@ header {
     line-height: 1.8;
 }
 
+/* ============================================
+   СПИСКИ ПРЕИМУЩЕСТВ
+   ============================================ */
 .benefits-list {
     list-style: none;
     margin-bottom: 2rem;
@@ -220,7 +240,9 @@ header {
     font-size: 1.5rem;
 }
 
-/* CTA Buttons */
+/* ============================================
+   CTA КНОПКИ
+   ============================================ */
 .cta-button {
     display: inline-block;
     padding: 1.2rem 3rem;
@@ -276,7 +298,9 @@ header {
     z-index: 1;
 }
 
-/* Footer CTA */
+/* ============================================
+   FOOTER CTA
+   ============================================ */
 .footer-cta {
     text-align: center;
     padding: 5rem 5%;
@@ -300,7 +324,9 @@ header {
     margin-right: auto;
 }
 
-/* Footer */
+/* ============================================
+   FOOTER
+   ============================================ */
 footer {
     background: var(--light-concrete);
     padding: 2rem 5%;
@@ -325,7 +351,9 @@ footer {
     color: var(--construction-orange);
 }
 
-/* Animations */
+/* ============================================
+   АНИМАЦИИ
+   ============================================ */
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -386,7 +414,9 @@ footer {
     }
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE - ДЕСКТОП И ПЛАНШЕТЫ
+   ============================================ */
 @media (max-width: 968px) {
     .split-sections {
         grid-template-columns: 1fr;
@@ -494,7 +524,6 @@ footer {
         font-size: 0.75rem;
     }
     
-    /* ОДНА КОЛОНКА ДЛЯ КАРТОЧЕК НА ПЛАНШЕТАХ */
     .split-sections {
         grid-template-columns: 1fr;
         gap: 1.5rem;
@@ -522,7 +551,7 @@ footer {
     
     .cta-button {
         font-size: clamp(14px, 2.5vw, 18px);
-        padding: 0.9rem 1.4rem;               
+        padding: 0.9rem 1.4rem;
     }
     
     .footer-cta {
@@ -543,7 +572,9 @@ footer {
     }
 }
 
-
+/* ============================================
+   RESPONSIVE - МОБИЛЬНЫЕ (< 640px)
+   ============================================ */
 @media (max-width: 640px) {
     .hero-title {
         font-size: 2rem;
