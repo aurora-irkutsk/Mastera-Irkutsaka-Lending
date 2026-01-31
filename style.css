@@ -664,7 +664,7 @@ footer {
     .hero h1,
     .hero-title {
         font-family: 'Montserrat', sans-serif;
-        font-size: clamp(2rem, 3.5vw, 5rem);
+        font-size: clamp(1.8rem, 3.5vw, 5rem);
         font-weight: 900;
     }
 
@@ -704,7 +704,7 @@ footer {
     }
 
     .hero-subtitle .highlight {
-    font-size: clamp(1.1rem, 2vw, 2.5rem);
+    font-size: clamp(1rem, 2.5vw, 3rem);
     color: var(--construction-yellow);
     font-weight: 600;
     display: block;
