@@ -689,7 +689,7 @@ footer {
     }
 
     .hero-subtitle .highlight {
-    font-size: clamp(1.1rem, 2.2vw, 3rem);
+    font-size: clamp(1.2rem, 2vw, 2.5rem);
     color: var(--construction-yellow);
     font-weight: 600;
     display: block;
