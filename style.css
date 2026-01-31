@@ -665,6 +665,21 @@ footer {
     .hero-title {
         font-family: 'Montserrat', sans-serif;
         font-size: clamp(2rem, 3.5vw, 5rem);
+        font-weight: 900;
+    }
+
+    .logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.6rem, 3.5vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    animation: slideDown 0.8s ease-out;
+    line-height: 1;
     }
 
     .subtitle {
