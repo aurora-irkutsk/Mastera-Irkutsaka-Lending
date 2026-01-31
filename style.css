@@ -675,7 +675,15 @@ footer {
     color: #ccc;
     animation: fadeIn 1s ease-out 0.5s backwards;
     line-height: 1.8;
-}
+    }
+
+    .hero-subtitle .highlight {
+    font-size: clamp(1rem, 2.5vw, 4rem);
+    color: var(--construction-yellow);
+    font-weight: 700;
+    display: block;
+    margin-top: 1rem;
+    }
     
     .stat-number {
         font-size: 2.2rem;
