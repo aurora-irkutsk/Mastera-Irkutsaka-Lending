@@ -685,7 +685,7 @@ footer {
     .subtitle {
     font-family: 'Montserrat', sans-serif;
     color: var(--safety-green);
-    font-size: clamp(0.8rem, 1.1vw, 1.8rem);
+    font-size: clamp(0.7rem, 1.1vw, 1.8rem);
     font-weight: 700;
     margin-top: 0.5rem;
     letter-spacing: 2px;
