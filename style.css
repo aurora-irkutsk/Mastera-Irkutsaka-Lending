@@ -685,7 +685,7 @@ footer {
     .subtitle {
     font-family: 'Montserrat', sans-serif;
     color: var(--safety-green);
-    font-size: clamp(1rem, 1.4vw, 2rem);
+    font-size: clamp(0.9rem, 1.4vw, 2rem);
     font-weight: 700;
     margin-top: 0.5rem;
     letter-spacing: 2px;
@@ -698,13 +698,13 @@ footer {
     font-weight: 900;
     max-width: 800px;
     margin: 0 auto 3rem;
-    color: #ccc;
+    color: whitesmoke;
     animation: fadeIn 1s ease-out 0.5s backwards;
     line-height: 1.8;
     } */
 
     .hero-subtitle .highlight {
-    font-size: clamp(1.1rem, 2.2vw, 3rem);
+    font-size: clamp(1rem, 2.2vw, 3rem);
     color: var(--construction-yellow);
     font-weight: 900;
     display: block;
