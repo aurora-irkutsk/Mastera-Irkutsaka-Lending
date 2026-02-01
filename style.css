@@ -213,8 +213,6 @@ header {
     animation: scaleIn 0.6s ease-out backwards;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    text-align: center;
 }
 
 .section-card:nth-child(1) {
@@ -303,8 +301,9 @@ header {
 .cta-button {
     display: block;
     margin: 0 auto;
-    padding: 1rem 2.2rem;
     width: fit-content;
+    padding: 1rem 2.2rem;
+    text-align: center;           /* ← ТЕКСТ ВНУТРИ КНОПКИ ПО ЦЕНТРУ */
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 700;
@@ -360,21 +359,25 @@ header {
 .cta-button span {
     position: relative;
     z-index: 1;
+    display: block;              /* ← SPAN НА ВСЮ ШИРИНУ */
+    text-align: center;          /* ← ТЕКСТ ПО ЦЕНТРУ */
 }
 
 .cta-main {
     display: block;
-    font-size: 1rem;
-    font-weight: 900;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;          /* ← ТЕКСТ ПО ЦЕНТРУ */
 }
 
 .cta-sub {
     display: block;
     font-size: 0.8rem;
-    margin-top: 0.5rem;
+    margin-top: 0.3rem;
     opacity: 0.9;
-    font-weight: 700;
+    font-weight: 500;
     letter-spacing: 1px;
+    text-align: center;          /* ← ТЕКСТ ПО ЦЕНТРУ */
 }
 
 /* ============================================
