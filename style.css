@@ -739,6 +739,11 @@ footer {
         font-size: 1.5rem;
     }
 
+    .section-card::after {
+        opacity: 1;  /* Постоянно видна */
+        height: 5px;
+    }
+
     .cta-main {
     display: block;
     font-family: 'Montserrat', sans-serif;
