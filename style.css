@@ -735,17 +735,12 @@ footer {
 
     .cta-main {
     display: block;
-    font-size: 1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     font-weight: 700;
     text-align: center;        
-    .footer-cta-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2rem, 3vw, 5rem);
-    font-weight: 900;
-    margin-bottom: 2rem;
-    animation: pulse 2s ease-in-out infinite;
     }
-    }
+
     .footer-cta-text {
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(1.1rem, 2vw, 3rem);
