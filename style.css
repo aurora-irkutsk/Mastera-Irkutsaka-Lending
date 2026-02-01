@@ -173,7 +173,7 @@ header {
 .stat-number {
     font-family: 'Montserrat', sans-serif;
     font-size: 3.5rem;
-    color: var(--construction-orange);
+    color: var(--safety-green);
     line-height: 1;
     font-weight: 700;
 }
@@ -277,7 +277,7 @@ header {
     padding: 0.8rem 0;
     border-bottom: 1px solid var(--steel-gray);
     font-size: 1rem;
-    font-weight: 400;
+    font-weight: 500;
     position: relative;
     padding-left: 2rem;
 }
