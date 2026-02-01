@@ -741,6 +741,13 @@ footer {
     text-align: center;        
     }
 
+    .footer-cta-title {
+        font-size: 2.4rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
     .footer-cta-text {
     font-family: 'Montserrat', sans-serif;
     font-size: clamp(1.1rem, 2vw, 3rem);
@@ -758,12 +765,5 @@ footer {
     color: var(--safety-green);
     font-size: 0.9rem;
     font-weight: 400;
-    }
-
-    .footer-cta-title {
-        font-size: clamp(1.5rem, 6vw, 2rem);  /* 24px - 32px */
-        line-height: 1.3;
-        word-wrap: break-word;
-        overflow-wrap: break-word;
     }
 }
