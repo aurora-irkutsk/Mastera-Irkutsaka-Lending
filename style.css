@@ -1,5 +1,5 @@
 /* ============================================
-   ШРИФТЫ — Montserrat (локальные)
+   ЛОКАЛЬНЫЕ ШРИФТЫ MONTSERRAT
    ============================================ */
 @font-face {
   font-family: 'Montserrat';
@@ -8,6 +8,7 @@
   font-display: swap;
   src: url('./fonts/montserrat-regular.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Montserrat';
   font-weight: 500;
@@ -15,6 +16,7 @@
   font-display: swap;
   src: url('./fonts/montserrat-medium.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Montserrat';
   font-weight: 600;
@@ -22,6 +24,7 @@
   font-display: swap;
   src: url('./fonts/montserrat-semibold.woff2') format('woff2');
 }
+
 @font-face {
   font-family: 'Montserrat';
   font-weight: 700;
@@ -31,511 +34,737 @@
 }
 
 /* ============================================
-   ПЕРЕМЕННЫЕ
+   CSS ПЕРЕМЕННЫЕ
    ============================================ */
 :root {
-  --construction-yellow: #FDB913;
-  --construction-orange: #FF6B35;
-  --dark-concrete: #1a1a1a;
-  --light-concrete: #2a2a2a;
-  --steel-gray: #4a4a4a;
-  --warning-red: #E63946;
-  --safety-green: #06FFA5;
-  --white: #FAFAFA;
+    --construction-yellow: #FDB913;
+    --construction-orange: #FF6B35;
+    --dark-concrete: #1a1a1a;
+    --light-concrete: #2a2a2a;
+    --steel-gray: #4a4a4a;
+    --warning-red: #E63946;
+    --safety-green: #06FFA5;
+    --white: #FAFAFA;
 }
 
 /* ============================================
    БАЗОВЫЕ СТИЛИ
    ============================================ */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Montserrat', sans-serif;
-  background: var(--dark-concrete);
-  color: var(--white);
-  overflow-x: hidden;
-  line-height: 1.6;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--dark-concrete);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.6;
 }
 
 /* ============================================
-   ДЕКОРАТИВНЫЙ ФОН
+   ДЕКОРАТИВНЫЕ ЭЛЕМЕНТЫ ФОНА
    ============================================ */
 .bg-pattern {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.03;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    repeating-linear-gradient(45deg, transparent, transparent 35px, var(--construction-yellow) 35px, var(--construction-yellow) 36px),
-    repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--construction-yellow) 35px, var(--construction-yellow) 36px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+    background-image: 
+        repeating-linear-gradient(45deg, transparent, transparent 35px, var(--construction-yellow) 35px, var(--construction-yellow) 36px),
+        repeating-linear-gradient(-45deg, transparent, transparent 35px, var(--construction-yellow) 35px, var(--construction-yellow) 36px);
 }
 
 /* ============================================
    HEADER
    ============================================ */
 header {
-  position: relative;
-  padding: 2rem 5%;
-  background: linear-gradient(135deg, var(--light-concrete), var(--dark-concrete));
-  border-bottom: 4px solid var(--construction-yellow);
-  z-index: 10;
+    position: relative;
+    padding: 2rem 5%;
+    background: linear-gradient(135deg, var(--light-concrete), var(--dark-concrete));
+    border-bottom: 4px solid var(--construction-yellow);
+    z-index: 10;
 }
 
 .logo {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 900;
-  letter-spacing: 3px;
-  background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-transform: uppercase;
-  animation: slideDown 0.8s ease-out;
-  line-height: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    animation: slideDown 0.8s ease-out;
+    line-height: 1;
 }
 
 .subtitle {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--safety-green);
-  font-size: 0.9rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
-  letter-spacing: 2px;
-  animation: fadeIn 1s ease-out 0.3s backwards;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--safety-green);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-out 0.3s backwards;
 }
 
 /* ============================================
    HERO SECTION
    ============================================ */
 .hero {
-  position: relative;
-  padding: 3rem 5% 8rem;
-  text-align: center;
-  z-index: 1;
+    position: relative;
+    padding: 3rem 5% 8rem;
+    text-align: center;
+    z-index: 1;
 }
 
+.hero h1,
 .hero-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2rem, 4.1vw, 6rem);
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  animation: slideUp 0.8s ease-out 0.2s backwards;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 4.1vw, 6rem);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    animation: slideUp 0.8s ease-out 0.2s backwards;
+    font-weight: 800;
 }
 
 .hero-subtitle {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 2vw, 4rem);
-  font-weight: 400;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  color: #ccc;
-  animation: fadeIn 1s ease-out 0.5s backwards;
-  line-height: 1.8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2vw, 4rem);
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    color: #ccc;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+    line-height: 1.8;
 }
 
 .hero-subtitle .highlight {
-  color: var(--construction-yellow);
-  font-weight: 700;
-  display: block;
-  margin-top: 1rem;
+    color: var(--construction-yellow);
+    font-weight: 700;
+    display: block;
+    margin-top: 1rem;
 }
 
 /* ============================================
    СТАТИСТИКА
    ============================================ */
 .stats {
-  display: flex;
-  justify-content: center;
-  gap: 3rem;
-  margin-bottom: 3rem;
-  flex-wrap: wrap;
-  animation: fadeIn 1s ease-out 0.7s backwards;
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    animation: fadeIn 1s ease-out 0.7s backwards;
 }
 
 .stat-item {
-  text-align: center;
+    text-align: center;
 }
 
 .stat-number {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 3.5rem;
-  color: var(--safety-green);
-  line-height: 1;
-  font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem;
+    color: var(--safety-green);
+    line-height: 1;
+    font-weight: 700;
 }
 
 .stat-label {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 700;
-  color: #999;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #999;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
 /* ============================================
-   СЕКЦИИ: КЛИЕНТЫ / МАСТЕРА
+   СЕКЦИИ (ДЛЯ МАСТЕРОВ / ДЛЯ КЛИЕНТОВ)
    ============================================ */
 .sections-container {
-  position: relative;
-  z-index: 1;
-  padding: 0 5% 4rem;
+    position: relative;
+    z-index: 1;
+    padding: 0 5% 4rem;
 }
 
 .split-sections {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 4rem;
 }
 
 .section-card {
-  background: var(--light-concrete);
-  padding: 3rem;
-  border-radius: 8px;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: scaleIn 0.6s ease-out backwards;
-  display: flex;
-  flex-direction: column;
+    background: var(--light-concrete);
+    padding: 3rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 3rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: scaleIn 0.6s ease-out backwards;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-card:nth-child(1) {
+    animation-delay: 0.8s;
+}
+
+.section-card:nth-child(2) {
+    animation-delay: 1s;
 }
 
 .section-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 6px;
-  background: linear-gradient(90deg, var(--construction-yellow), var(--construction-orange));
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px;
+    background: linear-gradient(90deg, var(--construction-yellow), var(--construction-orange));
 }
 
 .section-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(253, 185, 19, 0.2);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(253, 185, 19, 0.2);
 }
 
 .section-icon {
-  font-size: 4rem;
-  margin-bottom: 1rem;
-  animation: bounce 2s ease-in-out infinite;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: bounce 2s ease-in-out infinite;
 }
 
 .section-card:nth-child(2) .section-icon {
-  animation-delay: 0.5s;
+    animation-delay: 0.5s;
 }
 
 .section-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 2vw, 3rem);
-  font-weight: 700;
-  margin-bottom: 1rem;
-  color: var(--construction-yellow);
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 2vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--construction-yellow);
 }
 
 .section-tagline {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 2rem;
-  color: var(--safety-green);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    color: var(--safety-green);
 }
 
 /* ============================================
    СПИСКИ ПРЕИМУЩЕСТВ
    ============================================ */
 .benefits-list {
-  list-style: none;
-  margin-bottom: 2rem;
+    list-style: none;
+    margin-bottom: 2rem;
 }
 
 .benefits-list li {
-  font-family: 'Montserrat', sans-serif;
-  padding: 0.8rem 0;
-  border-bottom: 1px solid var(--steel-gray);
-  font-size: 1rem;
-  font-weight: 500;
-  position: relative;
-  padding-left: 2rem;
+    font-family: 'Montserrat', sans-serif;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--steel-gray);
+    font-size: 1rem;
+    font-weight: 500;
+    position: relative;
+    padding-left: 2rem;
 }
 
 .benefits-list li::before {
-  content: '▸';
-  position: absolute;
-  left: 0;
-  color: var(--construction-orange);
-  font-size: 1.5rem;
+    content: '▸';
+    position: absolute;
+    left: 0;
+    color: var(--construction-orange);
+    font-size: 1.5rem;
 }
 
 .benefits-list li strong {
-  font-weight: 600;
-  color: var(--construction-yellow);
+    font-weight: 600;
+    color: var(--construction-yellow);
 }
 
 /* ============================================
-   КНОПКИ CTA
+   CTA КНОПКИ
    ============================================ */
 .cta-button {
-  display: block;
-  margin: 0 auto;
-  width: fit-content;
-  padding: 1rem 2.2rem;
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  border: none;
-  border-radius: 50px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  position: relative;
-  overflow: hidden;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+    padding: 1rem 2.2rem;
+    text-align: center;           /* ← ТЕКСТ ВНУТРИ КНОПКИ ПО ЦЕНТРУ */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
 }
 
-.cta-masters,
-.cta-footer {
-  background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
-  color: var(--dark-concrete);
+.cta-masters {
+    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
+    color: var(--dark-concrete);
 }
 
 .cta-clients {
-  background: linear-gradient(135deg, var(--construction-orange), var(--warning-red));
-  color: var(--white);
+    background: linear-gradient(135deg, var(--construction-orange), var(--warning-red));
+    color: var(--white);
+}
+
+.cta-footer {
+    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
+    color: var(--dark-concrete);
 }
 
 .cta-button::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 0;
-  height: 0;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.3);
-  transform: translate(-50%, -50%);
-  transition: width 0.6s, height 0.6s;
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
 }
 
 .cta-button:hover::before {
-  width: 300px;
-  height: 300px;
+    width: 300px;
+    height: 300px;
 }
 
 .cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 10px 30px rgba(253, 185, 19, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(253, 185, 19, 0.4);
 }
 
 .cta-button span {
-  position: relative;
-  z-index: 1;
-  display: block;
-  text-align: center;
+    position: relative;
+    z-index: 1;
+    display: block;              /* ← SPAN НА ВСЮ ШИРИНУ */
+    text-align: center;          /* ← ТЕКСТ ПО ЦЕНТРУ */
 }
 
 .cta-main {
-  display: block;
-  font-size: 1.1rem;
-  font-weight: 700;
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-align: center;          /* ← ТЕКСТ ПО ЦЕНТРУ */
 }
 
 .cta-sub {
-  display: block;
-  font-size: clamp(0.6rem, 1.4vw, 2rem);
-  margin-top: 0.3rem;
-  opacity: 0.9;
-  font-weight: 500;
-  letter-spacing: 1px;
+    display: block;
+    font-size: clamp(0.6rem, 1.4vw, 2rem);
+    margin-top: 0.3rem;
+    opacity: 0.9;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;          /* ← ТЕКСТ ПО ЦЕНТРУ */
 }
 
 /* ============================================
-   ФИНАЛЬНЫЙ ПРИЗЫВ (FOOTER CTA)
+   FOOTER CTA
    ============================================ */
 .footer-cta {
-  text-align: center;
-  padding: 5rem 5%;
-  position: relative;
-  z-index: 1;
+    text-align: center;
+    padding: 5rem 5%;
+    position: relative;
+    z-index: 1;
 }
 
 .footer-cta-title {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(2rem, 3vw, 5rem);
-  font-weight: 900;
-  margin-bottom: 2rem;
-  animation: pulse 2s ease-in-out infinite;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(2rem, 3vw, 5rem);
+    font-weight: 900;
+    margin-bottom: 2rem;
+    animation: pulse 2s ease-in-out infinite;
 }
 
 .footer-cta-text {
-  font-family: 'Montserrat', sans-serif;
-  font-size: clamp(1rem, 1.8vw, 3rem);
-  font-weight: 400;
-  color: #ccc;
-  margin-bottom: 3rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.8;
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1rem, 1.8vw, 3rem);
+    font-weight: 400;
+    color: #ccc;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
 }
 
 /* ============================================
    FOOTER
    ============================================ */
 footer {
-  background: var(--light-concrete);
-  padding: 2rem 5%;
-  text-align: center;
-  border-top: 4px solid var(--construction-yellow);
-  position: relative;
-  z-index: 1;
+    background: var(--light-concrete);
+    padding: 2rem 5%;
+    text-align: center;
+    border-top: 4px solid var(--construction-yellow);
+    position: relative;
+    z-index: 1;
 }
 
 .footer-text {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--safety-green);
-  font-size: 0.9rem;
-  font-weight: 400;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--safety-green);
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .footer-link {
-  color: var(--construction-yellow);
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
+    color: var(--construction-yellow);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
 .footer-link:hover {
-  color: var(--construction-orange);
+    color: var(--construction-orange);
 }
 
 /* ============================================
    АНИМАЦИИ
    ============================================ */
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-30px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes scaleIn {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 @keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.8; }
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
 }
 
 /* ============================================
-   АДАПТИВ: ПЛАНШЕТЫ (769px – 1024px)
+   RESPONSIVE - ПЛАНШЕТЫ (769px - 1024px)
    ============================================ */
 @media (max-width: 1024px) and (min-width: 769px) {
-  header { padding: 1.5rem 4%; }
-  .hero { padding: 4rem 4% 5rem; }
-  .hero-title { font-size: 3.5rem; }
-  .sections-container { padding: 0 4% 3rem; }
-  .split-sections { gap: 1.5rem; }
-  .section-card { padding: 2.5rem; }
-  .footer-cta { padding: 4rem 4%; }
+    header {
+        padding: 1.5rem 4%;
+    }
+    
+    .hero {
+        padding: 4rem 4% 5rem;
+    }
+    
+    .hero h1,
+    .hero-title {
+        font-size: 3.5rem;
+    }
+    
+    .sections-container {
+        padding: 0 4% 3rem;
+    }
+    
+    .split-sections {
+        gap: 1.5rem;
+    }
+    
+    .section-card {
+        padding: 2.5rem;
+    }
+    
+    .footer-cta {
+        padding: 4rem 4%;
+    }
 }
 
 /* ============================================
-   АДАПТИВ: МОБИЛЬНЫЕ УСТРОЙСТВА (до 768px)
+   RESPONSIVE - ПЛАНШЕТЫ ВЕРТИКАЛЬНЫЕ (481px - 768px)
    ============================================ */
+@media (max-width: 968px) {
+    .split-sections {
+        grid-template-columns: 1fr;
+    }
+    
+    .hero h1,
+    .hero-title {
+        font-size: 3rem;
+    }
+    
+    .logo {
+        font-size: 2rem;
+    }
+    
+    .stats {
+        gap: 2rem;
+    }
+    
+    .section-card {
+        padding: 2rem;
+    }
+}
+
 @media (max-width: 768px) {
-  header { padding: 1.2rem 4%; }
-  .logo { font-size: 1.5rem; letter-spacing: 2px; }
-  .subtitle { font-size: 0.75rem; letter-spacing: 1px; }
-  .hero { padding: 2.5rem 4% 3rem; }
-  .hero-title { font-size: 2rem; line-height: 1.3; margin-bottom: 1rem; }
-  .hero-subtitle { font-size: 1rem; margin-bottom: 2rem; }
-  .stats { gap: 1.5rem; margin-bottom: 2rem; }
-  .stat-item { min-width: 80px; }
-  .stat-number { font-size: 2.5rem; }
-  .stat-label { font-size: 0.75rem; }
-  .split-sections {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-  }
-  .section-card { padding: 2rem; }
-  .section-title { font-size: 2rem; }
-  .section-tagline { font-size: 0.9rem; }
-  .benefits-list li {
-    font-size: 0.9rem;
-    padding: 0.6rem 0;
-    padding-left: 1.5rem;
-  }
-  .cta-button { padding: 1rem 2rem; }
-  .cta-main { font-size: 1rem; }
-  .cta-sub { font-size: 0.75rem; }
-  .footer-cta {
-    padding: 3rem 4%;
-  }
-  .footer-cta-title { font-size: 2.5rem; }
-  .footer-cta-text { font-size: 1rem; margin-bottom: 2rem; }
-  footer { padding: 1.5rem 4%; }
+    header {
+        padding: 1.2rem 4%;
+    }
+    
+    .logo {
+        font-size: 1.5rem;
+        letter-spacing: 2px;
+    }
+    
+    .subtitle {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+    
+    .hero {
+        padding: 2.5rem 4% 3rem;
+    }
+    
+    .hero h1,
+    .hero-title {
+        font-size: 2rem;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stats {
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .stat-item {
+        min-width: 80px;
+    }
+    
+    .stat-number {
+        font-size: 2.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .split-sections {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+    
+    .section-card {
+        padding: 2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-tagline {
+        font-size: 0.9rem;
+    }
+    
+    .benefits-list li {
+        font-size: 0.9rem;
+        padding: 0.6rem 0;
+        padding-left: 1.5rem;
+    }
+    
+    .cta-button {
+        padding: 1rem 2rem;
+    }
+    
+    .cta-main {
+        font-size: 1rem;
+    }
+    
+    .cta-sub {
+        font-size: 0.75rem;
+    }
+    
+    .footer-cta {
+        padding: 3rem 4%;
+    }
+    
+    .footer-cta-title {
+        font-size: 2.5rem;
+    }
+    
+    .footer-cta-text {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    footer {
+        padding: 1.5rem 4%;
+    }
 }
 
 /* ============================================
-   АДАПТИВ: МАЛЕНЬКИЕ ЭКРАНЫ (< 640px)
+   RESPONSIVE - МОБИЛЬНЫЕ (< 640px)
    ============================================ */
 @media (max-width: 640px) {
-  .hero-title {
-    font-size: clamp(1.6rem, 1.2rem + 3vw, 4rem);
-  }
-  .logo {
+    .hero h1,
+    .hero-title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: clamp(1.6rem, 1.2rem + 3vw, 4rem);
+        font-weight: 900;
+    }
+
+    .logo {
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(1.4rem, 3vw, 5rem);
-  }
-  .subtitle {
+    font-weight: 900;
+    letter-spacing: 3px;
+    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    animation: slideDown 0.8s ease-out;
+    line-height: 1;
+    }
+
+    .subtitle {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--safety-green);
     font-size: clamp(1rem, 1.4vw, 1.8rem);
-  }
-  .hero-subtitle {
+    font-weight: 700;
+    margin-top: 0.5rem;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-out 0.3s backwards;
+    }
+
+    .hero-subtitle {
+    font-family: 'Montserrat', sans-serif;
     font-size: clamp(1.1rem, 2.2vw, 3rem);
-  }
-  .hero-subtitle .highlight {
+    font-weight: 900;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    color: whitesmoke;
+    animation: fadeIn 1s ease-out 0.5s backwards;
+    line-height: 1.8;
+    } */
+
+    .hero-subtitle .highlight {
     font-size: clamp(0.9rem, 2.2vw, 3rem);
-  }
-  .stat-number { font-size: 2rem; }
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-  .section-title { font-size: 1.5rem; }
-  .footer-cta-title {
-    font-size: 2rem;
-    line-height: 1.3;
-    word-wrap: break-word;
-    overflow-wrap: break-word;
-  }
+    color: var(--construction-yellow);
+    font-weight: 900;
+    display: block;
+    margin-top: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+
+    .cta-main {
+    display: block;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    text-align: center;        
+    }
+
+    .footer-cta-title {
+        font-size: 2rem;
+        line-height: 1.3;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .footer-cta-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 3rem);
+    font-weight: 400;
+    color: #ccc;
+    margin-bottom: 3rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.8;
+    }
+
+    .footer-text {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--safety-green);
+    font-size: 0.9rem;
+    font-weight: 400;
+    }
 }
