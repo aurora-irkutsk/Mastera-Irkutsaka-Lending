@@ -759,4 +759,11 @@ footer {
     margin-right: auto;
     line-height: 1.8;
     }
+
+    .footer-text {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--safety-green);
+    font-size: 0.9rem;
+    font-weight: 400;
+    }
 }
