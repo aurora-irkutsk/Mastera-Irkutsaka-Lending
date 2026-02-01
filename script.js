@@ -43,11 +43,11 @@ function prepareStatsForAnimation() {
         // ВАЖНО: Проверяем ТОЧНОЕ совпадение, а не includes!
         // Сначала проверяем более длинные числа (1200), потом короткие (200)
         
-        if (text === '1200+' || text === '1200') {
-            stat.dataset.target = '1200';
+        if (text === '1200+' || text === '1290') {
+            stat.dataset.target = '1290';
             stat.dataset.suffix = '+';
             stat.textContent = '0+';
-            console.log('✅ Найдено 1200+, подготовлено к анимации');
+            console.log('✅ Найдено 1290+, подготовлено к анимации');
             
         } else if (text === '200+' || text === '200') {
             stat.dataset.target = '200';
@@ -98,7 +98,7 @@ const observer = new IntersectionObserver((entries) => {
                 
                 console.log(`🎬 Запускаю анимацию для: ${target}${suffix}`);
                 
-                if (target === '1200') {
+                if (target === '1290') {
                     setTimeout(() => {
                         animateCounter(entry.target, 1200, 2500, suffix);
                     }, 100);
@@ -222,9 +222,9 @@ window.addEventListener('load', () => {
                 
                 console.log(`🎬 Принудительный запуск анимации для: ${target}${suffix}`);
                 
-                if (target === '1200') {
+                if (target === '1290') {
                     setTimeout(() => {
-                        animateCounter(stat, 1200, 2500, suffix);
+                        animateCounter(stat, 1290, 2500, suffix);
                     }, 100);
                     
                 } else if (target === '200') {
@@ -300,4 +300,4 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
 }, false);
 
-console.log('🚀 JavaScript загружен! Ищем: 200+, 1200+, 30 мин');
+console.log('🚀 JavaScript загружен! Ищем: 200+, 1290+, 30 мин');
