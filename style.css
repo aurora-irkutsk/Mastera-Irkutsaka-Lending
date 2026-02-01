@@ -424,7 +424,7 @@ footer {
 
 .footer-text {
     font-family: 'Montserrat', sans-serif;
-    color: #999;
+    color: var(--safety-green);
     font-size: 0.9rem;
     font-weight: 400;
 }
