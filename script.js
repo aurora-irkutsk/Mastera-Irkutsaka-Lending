@@ -1,31 +1,105 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Инициализация всех модулей
+    initStatsAnimation();
+    initScrollAnimation();
+    initAnalytics();
+});
+
 // ============================================
-// АНИМАЦИЯ НАБЕГАЮЩИХ ЦИФР
+// 1. АНИМАЦИЯ ЦИФР (УНИВЕРСАЛЬНАЯ)
 // ============================================
 
-function animateCounter(element, target, duration = 6000, suffix = '') {
+function initStatsAnimation() {
+    const stats = document.querySelectorAll('.stat-number');
+
+    if (stats.length === 0) return;
+
+    // Настройка наблюдателя (Observer)
+    const observerOptions = {
+        threshold: 0.5 // Срабатывает, когда элемент виден на 50%
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const element = entry.target;
+                
+                // Получаем цель и суффикс
+                const target = parseInt(element.dataset.target, 10);
+                const suffix = element.dataset.suffix || '';
+                
+                // Запускаем анимацию
+                animateCounter(element, target, 2500, suffix);
+                
+                // Перестаем следить за этим элементом после запуска
+                observer.unobserve(element);
+            }
+        });
+    }, observerOptions);
+
+    // Подготовка элементов перед наблюдением
+    stats.forEach(stat => {
+        let targetValue, suffix;
+
+        // ВАРИАНТ А: Если в HTML есть атрибуты data-target (рекомендуемый способ)
+        if (stat.dataset.target) {
+            targetValue = stat.dataset.target;
+            suffix = stat.dataset.suffix || '';
+        } 
+        // ВАРИАНТ Б: Автоматическое распознавание из текста (если атрибутов нет)
+        else {
+            const rawText = stat.textContent.trim();
+            // Регулярное выражение: ищем число в начале и текст после него
+            const match = rawText.match(/^(\d+)(.*)$/);
+            
+            if (match) {
+                targetValue = match[1]; // Само число (например, "1290")
+                suffix = match[2];      // Хвостик (например, "+")
+            } else {
+                // Если число не найдено, оставляем как есть и не анимируем
+                return;
+            }
+        }
+
+        // Сохраняем вычисленные данные в dataset для Observer
+        stat.dataset.target = targetValue;
+        stat.dataset.suffix = suffix;
+
+        // Сбрасываем визуальное значение на 0 перед стартом
+        stat.textContent = '0' + suffix;
+
+        // Начинаем наблюдение
+        observer.observe(stat);
+    });
+}
+
+function animateCounter(element, target, duration, suffix) {
     let start = 0;
     const startTime = performance.now();
-    
-    // Экстремальное замедление (ease-out-quint)
+
+    // Функция плавности (Ease Out Quint) - быстро начинается, медленно тормозит
     function easeOutQuint(t) {
-        return 1 - Math.pow(1 - t, 7);
+        return 1 - Math.pow(1 - t, 5);
     }
-    
+
     function animate(currentTime) {
         const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+        const progress = Math.min(elapsed / duration, 1); // Прогресс от 0 до 1
         const easedProgress = easeOutQuint(progress);
-        
-        start = Math.floor(easedProgress * target);
-        
+
+        // Вычисляем текущее число
+        const current = Math.floor(easedProgress * target);
+
+        element.textContent = current + suffix;
+
         if (progress < 1) {
-            element.textContent = `${start}${suffix}`;
             requestAnimationFrame(animate);
         } else {
-            element.textContent = `${target}${suffix}`;
+            // Гарантируем, что в конце будет точное число
+            element.textContent = target + suffix;
         }
     }
-    
+
     requestAnimationFrame(animate);
 }
 
@@ -275,29 +349,31 @@ document.querySelectorAll('.cta-button').forEach(button => {
 });
 
 // ============================================
-// АНИМАЦИЯ ПРИ ПРОКРУТКЕ
+// 2. АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ
 // ============================================
 
-let lastScrollTop = 0;
+function initScrollAnimation() {
+    // Элементы, которые будем анимировать
+    const elementsToAnimate = document.querySelectorAll('.stat-item, .section-card, .section-title, .hero-subtitle');
 
-window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    if (scrollTop > lastScrollTop) {
-        document.querySelectorAll('.stat-item, .section-card').forEach(element => {
-            const rect = element.getBoundingClientRect();
-            
-            if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
-                if (!element.dataset.scrollAnimated) {
-                    element.dataset.scrollAnimated = 'true';
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
+    if (window.IntersectionObserver) {
+        // Современный способ через Observer
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Опционально: убрать наблюдение, если анимация нужна только один раз
+                    scrollObserver.unobserve(entry.target); 
                 }
-            }
-        });
-    }
-    
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-}, false);
+            });
+        }, { threshold: 0.1 });
 
-console.log('🚀 JavaScript загружен! Ищем: 200+, 1290+, 30 мин');
+        elementsToAnimate.forEach(el => {
+            el.classList.add('fade-init'); // Добавляем класс для скрытия
+            scrollObserver.observe(el);
+        });
+    } else {
+        // Фолбэк для очень старых браузеров: просто показываем всё сразу
+        elementsToAnimate.forEach(el => el.style.opacity = 1);
+    }
+}
