@@ -256,7 +256,7 @@ header {
 .section-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.5rem;
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: 1rem;
     color: var(--construction-yellow);
     flex-shrink: 0;
@@ -703,7 +703,7 @@ footer {
 
     .subtitle {
         font-size: clamp(1rem, 1.4vw, 1.8rem);
-        font-weight: 700;
+        font-weight: 500;
     }
 
     .hero-subtitle {
@@ -728,6 +728,7 @@ footer {
 
     .section-title {
         font-size: 1.5rem;
+        font-weight: 500;
     }
 
     .section-card::after {
