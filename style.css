@@ -82,17 +82,106 @@ body {
 }
 
 /* ============================================
+   АНИМИРОВАННЫЙ ГРАДИЕНТНЫЙ ФОН (отключен)
+   ============================================ */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+    filter: blur(80px);
+    opacity: 0.7;
+}
+
+.gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.7;
+    mix-blend-mode: screen;
+}
+
+.orb-1 {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle at center, rgba(253, 185, 19, 0.8) 0%, rgba(253, 185, 19, 0) 70%);
+    top: 10%;
+    left: 20%;
+    animation: moveVertical 30s ease infinite;
+}
+
+.orb-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle at center, rgba(255, 152, 0, 0.7) 0%, rgba(255, 152, 0, 0) 70%);
+    top: 60%;
+    left: 70%;
+    animation: moveInCircle 20s reverse infinite;
+}
+
+.orb-3 {
+    width: 550px;
+    height: 550px;
+    background: radial-gradient(circle at center, rgba(76, 175, 80, 0.6) 0%, rgba(76, 175, 80, 0) 70%);
+    top: 40%;
+    left: 50%;
+    animation: moveInCircle 40s linear infinite;
+}
+
+.orb-4 {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle at center, rgba(255, 193, 7, 0.7) 0%, rgba(255, 193, 7, 0) 70%);
+    top: 70%;
+    left: 30%;
+    animation: moveHorizontal 40s ease infinite;
+}
+
+.orb-5 {
+    width: 480px;
+    height: 480px;
+    background: radial-gradient(circle at center, rgba(46, 125, 50, 0.5) 0%, rgba(46, 125, 50, 0) 70%);
+    top: 20%;
+    left: 80%;
+    animation: moveInCircle 25s ease infinite;
+}
+
+/* ============================================
    HEADER
    ============================================ */
 header {
     position: relative;
     padding: 2rem 5%;
-    background: linear-gradient(135deg, var(--light-concrete), var(--dark-concrete));
+    background: linear-gradient(135deg, #5a5a5a, #4a4a4a);
     border-bottom: 4px solid var(--construction-yellow);
     z-index: 10;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2rem;
+    animation: slideDown 0.8s ease-out;
+}
+
+.logo-image {
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(253, 185, 19, 0.3));
+    animation: scaleIn 0.6s ease-out;
+}
+
+.logo-text {
+    text-align: left;
+}
+
+.logo-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.2rem;
     font-weight: 900;
@@ -102,7 +191,6 @@ header {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-transform: uppercase;
-    animation: slideDown 0.8s ease-out;
     line-height: 1;
 }
 
@@ -134,6 +222,7 @@ header {
     margin-bottom: 1.5rem;
     animation: slideUp 0.8s ease-out 0.2s backwards;
     font-weight: 800;
+    color: #d0d0d0;
 }
 
 .hero-subtitle {
@@ -302,8 +391,112 @@ header {
 }
 
 /* ============================================
-   CTA КНОПКИ
+   CTA КНОПКИ С ГРАДИЕНТОМ
    ============================================ */
+
+/* CSS Custom Properties для градиентных кнопок */
+@property --pos-x {
+    syntax: '<percentage>';
+    initial-value: 11.14%;
+    inherits: false;
+}
+
+@property --pos-y {
+    syntax: '<percentage>';
+    initial-value: 140%;
+    inherits: false;
+}
+
+@property --spread-x {
+    syntax: '<percentage>';
+    initial-value: 150%;
+    inherits: false;
+}
+
+@property --spread-y {
+    syntax: '<percentage>';
+    initial-value: 180.06%;
+    inherits: false;
+}
+
+@property --color-1 {
+    syntax: '<color>';
+    initial-value: #000;
+    inherits: false;
+}
+
+@property --color-2 {
+    syntax: '<color>';
+    initial-value: #08012c;
+    inherits: false;
+}
+
+@property --color-3 {
+    syntax: '<color>';
+    initial-value: #4e1e40;
+    inherits: false;
+}
+
+@property --color-4 {
+    syntax: '<color>';
+    initial-value: #70464e;
+    inherits: false;
+}
+
+@property --color-5 {
+    syntax: '<color>';
+    initial-value: #88394c;
+    inherits: false;
+}
+
+@property --border-angle {
+    syntax: '<angle>';
+    initial-value: 20deg;
+    inherits: true;
+}
+
+@property --border-color-1 {
+    syntax: '<color>';
+    initial-value: hsla(340, 75%, 60%, 0.2);
+    inherits: true;
+}
+
+@property --border-color-2 {
+    syntax: '<color>';
+    initial-value: hsla(340, 75%, 40%, 0.75);
+    inherits: true;
+}
+
+@property --stop-1 {
+    syntax: '<percentage>';
+    initial-value: 37.35%;
+    inherits: false;
+}
+
+@property --stop-2 {
+    syntax: '<percentage>';
+    initial-value: 61.36%;
+    inherits: false;
+}
+
+@property --stop-3 {
+    syntax: '<percentage>';
+    initial-value: 78.42%;
+    inherits: false;
+}
+
+@property --stop-4 {
+    syntax: '<percentage>';
+    initial-value: 89.52%;
+    inherits: false;
+}
+
+@property --stop-5 {
+    syntax: '<percentage>';
+    initial-value: 100%;
+    inherits: false;
+}
+
 .cta-button {
     display: block;
     margin: 0 auto;
@@ -316,50 +509,141 @@ header {
     text-transform: uppercase;
     letter-spacing: 2px;
     border: none;
-    border-radius: 50px;
+    border-radius: 11px;
     cursor: pointer;
-    transition: all 0.3s ease;
     text-decoration: none;
     position: relative;
-    overflow: hidden;
-}
-
-.cta-masters {
-    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
-    color: var(--dark-concrete);
-}
-
-.cta-clients {
-    background: linear-gradient(135deg, var(--construction-orange), var(--warning-red));
-    color: var(--white);
-}
-
-.cta-footer {
-    background: linear-gradient(135deg, var(--construction-yellow), var(--construction-orange));
-    color: var(--dark-concrete);
+    appearance: none;
+    background: radial-gradient(
+        var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
+        var(--color-1) var(--stop-1),
+        var(--color-2) var(--stop-2),
+        var(--color-3) var(--stop-3),
+        var(--color-4) var(--stop-4),
+        var(--color-5) var(--stop-5)
+    );
+    transition:
+        --pos-x 0.5s,
+        --pos-y 0.5s,
+        --spread-x 0.5s,
+        --spread-y 0.5s,
+        --color-1 0.5s,
+        --color-2 0.5s,
+        --color-3 0.5s,
+        --color-4 0.5s,
+        --color-5 0.5s,
+        --border-angle 0.5s,
+        --border-color-1 0.5s,
+        --border-color-2 0.5s,
+        --stop-1 0.5s,
+        --stop-2 0.5s,
+        --stop-3 0.5s,
+        --stop-4 0.5s,
+        --stop-5 0.5s,
+        transform 0.3s ease;
 }
 
 .cta-button::before {
     content: '';
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 0;
-    height: 0;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.3);
-    transform: translate(-50%, -50%);
-    transition: width 0.6s, height 0.6s;
-}
-
-.cta-button:hover::before {
-    width: 300px;
-    height: 300px;
+    inset: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(
+        var(--border-angle),
+        var(--border-color-1),
+        var(--border-color-2)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
 }
 
 .cta-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(253, 185, 19, 0.4);
+    --pos-x: 0%;
+    --pos-y: 91.51%;
+    --spread-x: 120.24%;
+    --spread-y: 103.18%;
+    --color-1: #c96287;
+    --color-2: #c66c64;
+    --color-3: #cc7d23;
+    --color-4: #37140a;
+    --color-5: #000;
+    --border-angle: 190deg;
+    --border-color-1: hsla(340, 78%, 90%, 0.1);
+    --border-color-2: hsla(340, 75%, 90%, 0.6);
+    --stop-1: 0%;
+    --stop-2: 8.8%;
+    --stop-3: 21.44%;
+    --stop-4: 71.34%;
+    --stop-5: 85.76%;
+    transform: scale(1.02);
+}
+
+/* Вариант для мастеров - зеленый/желтый */
+.cta-masters {
+    --color-1: #000022;
+    --color-2: #1f3f6d;
+    --color-3: #469396;
+    --color-4: #f1ffa5;
+    --border-angle: 200deg;
+    --border-color-1: hsla(45, 75%, 90%, 0.6);
+    --border-color-2: hsla(45, 50%, 90%, 0.15);
+    color: var(--white);
+}
+
+.cta-masters:hover {
+    --pos-x: 0%;
+    --pos-y: 95.51%;
+    --spread-x: 110.24%;
+    --spread-y: 110.2%;
+    --color-1: #000020;
+    --color-2: #f1ffa5;
+    --color-3: #469396;
+    --color-4: #1f3f6d;
+    --color-5: #000;
+    --stop-1: 0%;
+    --stop-2: 10%;
+    --stop-3: 35.44%;
+    --stop-4: 71.34%;
+    --stop-5: 90.76%;
+    --border-angle: 210deg;
+    --border-color-1: hsla(45, 75%, 90%, 0.2);
+    --border-color-2: hsla(45, 50%, 90%, 0.75);
+}
+
+/* Вариант для клиентов - розовый/фиолетовый */
+.cta-clients {
+    color: var(--white);
+}
+
+/* Вариант для footer */
+.cta-footer {
+    --color-1: #1a0a2e;
+    --color-2: #3f1e6d;
+    --color-3: #7e3f96;
+    --color-4: #ff9a5a;
+    --border-angle: 180deg;
+    --border-color-1: hsla(30, 75%, 90%, 0.6);
+    --border-color-2: hsla(30, 50%, 90%, 0.15);
+    color: var(--white);
+}
+
+.cta-footer:hover {
+    --pos-x: 50%;
+    --pos-y: 50%;
+    --spread-x: 150%;
+    --spread-y: 150%;
+    --color-1: #ff9a5a;
+    --color-2: #7e3f96;
+    --color-3: #3f1e6d;
+    --color-4: #1a0a2e;
+    --color-5: #000;
+    --border-angle: 360deg;
+    --border-color-1: hsla(30, 75%, 90%, 0.3);
+    --border-color-2: hsla(30, 50%, 90%, 0.8);
 }
 
 .cta-button span {
@@ -523,6 +807,39 @@ footer {
     }
 }
 
+@keyframes moveVertical {
+    0% {
+        transform: translateY(-50%);
+    }
+    50% {
+        transform: translateY(50%);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes moveHorizontal {
+    0% {
+        transform: translateX(-50%) translateY(-10%);
+    }
+    50% {
+        transform: translateX(50%) translateY(10%);
+    }
+    100% {
+        transform: translateX(-50%) translateY(-10%);
+    }
+}
+
+@keyframes moveInCircle {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+}
+
 /* ============================================
    RESPONSIVE — ПЛАНШЕТЫ (769px – 1024px)
    ============================================ */
@@ -570,7 +887,12 @@ footer {
         font-size: 3rem;
     }
 
-    .logo {
+    .logo-image {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .logo-title {
         font-size: 2rem;
     }
 
@@ -589,6 +911,15 @@ footer {
     }
 
     .logo {
+        gap: 0.8rem;
+    }
+    
+    .logo-image {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .logo-title {
         font-size: 1.5rem;
         letter-spacing: 2px;
     }
