@@ -159,6 +159,11 @@ header {
     border-bottom: 4px solid var(--construction-yellow);
     z-index: 10;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
 
 .logo {
@@ -202,6 +207,64 @@ header {
     margin-top: 0.5rem;
     letter-spacing: 2px;
     animation: fadeIn 1s ease-out 0.3s backwards;
+}
+
+/* ============================================
+   СЧЕТЧИК ОНЛАЙН МАСТЕРОВ
+   ============================================ */
+.online-counter {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid var(--safety-green);
+    backdrop-filter: blur(10px);
+    animation: slideDown 0.8s ease-out 0.5s backwards;
+    box-shadow: 0 4px 15px rgba(6, 255, 165, 0.3);
+}
+
+.online-indicator {
+    width: 12px;
+    height: 12px;
+    background: var(--safety-green);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--safety-green), 0 0 20px var(--safety-green);
+    animation: pulse-online 3s ease-in-out infinite;
+    transition: opacity 0.6s ease, box-shadow 0.6s ease;
+}
+
+.online-text {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--white);
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.online-count {
+    color: var(--safety-green);
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.online-count.updating {
+    transform: scale(1.15);
+}
+
+@keyframes pulse-online {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 10px var(--safety-green), 0 0 20px var(--safety-green);
+    }
+    50% {
+        opacity: 0.3;
+        transform: scale(1);
+        box-shadow: 0 0 5px var(--safety-green), 0 0 10px var(--safety-green);
+    }
 }
 
 /* ============================================
@@ -391,259 +454,98 @@ header {
 }
 
 /* ============================================
-   CTA КНОПКИ С ГРАДИЕНТОМ
+   CTA КНОПКИ - GLASSMORPHISM СТИЛЬ
    ============================================ */
-
-/* CSS Custom Properties для градиентных кнопок */
-@property --pos-x {
-    syntax: '<percentage>';
-    initial-value: 11.14%;
-    inherits: false;
-}
-
-@property --pos-y {
-    syntax: '<percentage>';
-    initial-value: 140%;
-    inherits: false;
-}
-
-@property --spread-x {
-    syntax: '<percentage>';
-    initial-value: 150%;
-    inherits: false;
-}
-
-@property --spread-y {
-    syntax: '<percentage>';
-    initial-value: 180.06%;
-    inherits: false;
-}
-
-@property --color-1 {
-    syntax: '<color>';
-    initial-value: #000;
-    inherits: false;
-}
-
-@property --color-2 {
-    syntax: '<color>';
-    initial-value: #08012c;
-    inherits: false;
-}
-
-@property --color-3 {
-    syntax: '<color>';
-    initial-value: #4e1e40;
-    inherits: false;
-}
-
-@property --color-4 {
-    syntax: '<color>';
-    initial-value: #70464e;
-    inherits: false;
-}
-
-@property --color-5 {
-    syntax: '<color>';
-    initial-value: #88394c;
-    inherits: false;
-}
-
-@property --border-angle {
-    syntax: '<angle>';
-    initial-value: 20deg;
-    inherits: true;
-}
-
-@property --border-color-1 {
-    syntax: '<color>';
-    initial-value: hsla(340, 75%, 60%, 0.2);
-    inherits: true;
-}
-
-@property --border-color-2 {
-    syntax: '<color>';
-    initial-value: hsla(340, 75%, 40%, 0.75);
-    inherits: true;
-}
-
-@property --stop-1 {
-    syntax: '<percentage>';
-    initial-value: 37.35%;
-    inherits: false;
-}
-
-@property --stop-2 {
-    syntax: '<percentage>';
-    initial-value: 61.36%;
-    inherits: false;
-}
-
-@property --stop-3 {
-    syntax: '<percentage>';
-    initial-value: 78.42%;
-    inherits: false;
-}
-
-@property --stop-4 {
-    syntax: '<percentage>';
-    initial-value: 89.52%;
-    inherits: false;
-}
-
-@property --stop-5 {
-    syntax: '<percentage>';
-    initial-value: 100%;
-    inherits: false;
-}
 
 .cta-button {
     display: block;
     margin: 0 auto;
     width: fit-content;
-    padding: 1rem 2.2rem;
+    padding: 1.2rem 2.5rem;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
-    border: none;
-    border-radius: 11px;
     cursor: pointer;
     text-decoration: none;
     position: relative;
-    appearance: none;
-    background: radial-gradient(
-        var(--spread-x) var(--spread-y) at var(--pos-x) var(--pos-y),
-        var(--color-1) var(--stop-1),
-        var(--color-2) var(--stop-2),
-        var(--color-3) var(--stop-3),
-        var(--color-4) var(--stop-4),
-        var(--color-5) var(--stop-5)
-    );
-    transition:
-        --pos-x 0.5s,
-        --pos-y 0.5s,
-        --spread-x 0.5s,
-        --spread-y 0.5s,
-        --color-1 0.5s,
-        --color-2 0.5s,
-        --color-3 0.5s,
-        --color-4 0.5s,
-        --color-5 0.5s,
-        --border-angle 0.5s,
-        --border-color-1 0.5s,
-        --border-color-2 0.5s,
-        --stop-1 0.5s,
-        --stop-2 0.5s,
-        --stop-3 0.5s,
-        --stop-4 0.5s,
-        --stop-5 0.5s,
-        transform 0.3s ease;
-}
-
-.cta-button::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    padding: 1px;
-    background: linear-gradient(
-        var(--border-angle),
-        var(--border-color-1),
-        var(--border-color-2)
-    );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    pointer-events: none;
+    
+    /* Glassmorphism эффект */
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    
+    /* Тени и переходы */
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    color: var(--white);
 }
 
 .cta-button:hover {
-    --pos-x: 0%;
-    --pos-y: 91.51%;
-    --spread-x: 120.24%;
-    --spread-y: 103.18%;
-    --color-1: #c96287;
-    --color-2: #c66c64;
-    --color-3: #cc7d23;
-    --color-4: #37140a;
-    --color-5: #000;
-    --border-angle: 190deg;
-    --border-color-1: hsla(340, 78%, 90%, 0.1);
-    --border-color-2: hsla(340, 75%, 90%, 0.6);
-    --stop-1: 0%;
-    --stop-2: 8.8%;
-    --stop-3: 21.44%;
-    --stop-4: 71.34%;
-    --stop-5: 85.76%;
-    transform: scale(1.02);
+    transform: translateY(-5px) scale(1.03);
+    border-color: rgba(255, 255, 255, 0.4);
+    background: rgba(0, 0, 0, 0.4);
 }
 
-/* Вариант для мастеров - зеленый/желтый */
+/* Вариант для клиентов - зеленый */
+.cta-clients {
+    border: 3px solid var(--safety-green);
+    box-shadow: 
+        0 8px 32px rgba(6, 255, 165, 0.3),
+        0 0 40px rgba(6, 255, 165, 0.2),
+        inset 0 1px 0 rgba(6, 255, 165, 0.2);
+}
+
+.cta-clients:hover {
+    box-shadow: 
+        0 12px 40px rgba(6, 255, 165, 0.5),
+        0 0 60px rgba(6, 255, 165, 0.4),
+        inset 0 1px 0 rgba(6, 255, 165, 0.3);
+    border-color: var(--safety-green);
+    background: rgba(6, 255, 165, 0.15);
+}
+
+/* Вариант для мастеров - желтый */
 .cta-masters {
-    --color-1: #000022;
-    --color-2: #1f3f6d;
-    --color-3: #469396;
-    --color-4: #f1ffa5;
-    --border-angle: 200deg;
-    --border-color-1: hsla(45, 75%, 90%, 0.6);
-    --border-color-2: hsla(45, 50%, 90%, 0.15);
-    color: var(--white);
+    border: 3px solid var(--construction-yellow);
+    box-shadow: 
+        0 8px 32px rgba(253, 185, 19, 0.3),
+        0 0 40px rgba(253, 185, 19, 0.2),
+        inset 0 1px 0 rgba(253, 185, 19, 0.2);
 }
 
 .cta-masters:hover {
-    --pos-x: 0%;
-    --pos-y: 95.51%;
-    --spread-x: 110.24%;
-    --spread-y: 110.2%;
-    --color-1: #000020;
-    --color-2: #f1ffa5;
-    --color-3: #469396;
-    --color-4: #1f3f6d;
-    --color-5: #000;
-    --stop-1: 0%;
-    --stop-2: 10%;
-    --stop-3: 35.44%;
-    --stop-4: 71.34%;
-    --stop-5: 90.76%;
-    --border-angle: 210deg;
-    --border-color-1: hsla(45, 75%, 90%, 0.2);
-    --border-color-2: hsla(45, 50%, 90%, 0.75);
+    box-shadow: 
+        0 12px 40px rgba(253, 185, 19, 0.5),
+        0 0 60px rgba(253, 185, 19, 0.4),
+        inset 0 1px 0 rgba(253, 185, 19, 0.3);
+    border-color: var(--construction-yellow);
+    background: rgba(253, 185, 19, 0.15);
 }
 
-/* Вариант для клиентов - розовый/фиолетовый */
-.cta-clients {
-    color: var(--white);
-}
-
-/* Вариант для footer */
+/* Вариант для footer - оранжевый */
 .cta-footer {
-    --color-1: #1a0a2e;
-    --color-2: #3f1e6d;
-    --color-3: #7e3f96;
-    --color-4: #ff9a5a;
-    --border-angle: 180deg;
-    --border-color-1: hsla(30, 75%, 90%, 0.6);
-    --border-color-2: hsla(30, 50%, 90%, 0.15);
-    color: var(--white);
+    border: 3px solid var(--construction-orange);
+    box-shadow: 
+        0 8px 32px rgba(255, 107, 53, 0.3),
+        0 0 40px rgba(255, 107, 53, 0.2),
+        inset 0 1px 0 rgba(255, 107, 53, 0.2);
 }
 
 .cta-footer:hover {
-    --pos-x: 50%;
-    --pos-y: 50%;
-    --spread-x: 150%;
-    --spread-y: 150%;
-    --color-1: #ff9a5a;
-    --color-2: #7e3f96;
-    --color-3: #3f1e6d;
-    --color-4: #1a0a2e;
-    --color-5: #000;
-    --border-angle: 360deg;
-    --border-color-1: hsla(30, 75%, 90%, 0.3);
-    --border-color-2: hsla(30, 50%, 90%, 0.8);
+    box-shadow: 
+        0 12px 40px rgba(255, 107, 53, 0.5),
+        0 0 60px rgba(255, 107, 53, 0.4),
+        inset 0 1px 0 rgba(255, 107, 53, 0.3);
+    border-color: var(--construction-orange);
+    background: rgba(255, 107, 53, 0.15);
 }
 
 .cta-button span {
@@ -908,10 +810,33 @@ footer {
 @media (max-width: 768px) {
     header {
         padding: 1.2rem 4%;
+        justify-content: center;
     }
 
     .logo {
         gap: 0.8rem;
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+    
+    .online-counter {
+        flex: 1 1 100%;
+        justify-content: center;
+        padding: 0.6rem 1.2rem;
+        font-size: 0.85rem;
+    }
+    
+    .online-text {
+        font-size: 0.85rem;
+    }
+    
+    .online-count {
+        font-size: 1rem;
+    }
+    
+    .online-indicator {
+        width: 10px;
+        height: 10px;
     }
     
     .logo-image {

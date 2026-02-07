@@ -16,7 +16,7 @@ Disallow: /style.css
 Disallow: /script.js
 
 # Указываем путь к карте сайта
-Sitemap: https://yourdomain.com/sitemap.xml
+Sitemap: https://mastera-irkutska.ru/sitemap.xml
 
 # Время ожидания между запросами (в секундах)
 Crawl-delay: 1
