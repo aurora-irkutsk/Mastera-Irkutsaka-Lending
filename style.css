@@ -396,14 +396,76 @@ header {
 }
 
 .section-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    animation: bounce 2s ease-in-out infinite;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: relative;
     flex-shrink: 0;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.section-icon svg {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* Круглая рамка для иконки клиентов (зеленая) */
+.icon-clients {
+    background: radial-gradient(circle at 30% 30%, rgba(6, 255, 165, 0.15), rgba(6, 255, 165, 0.05));
+    border: 3px solid var(--safety-green);
+    box-shadow: 
+        0 0 30px rgba(6, 255, 165, 0.3),
+        inset 0 0 20px rgba(6, 255, 165, 0.1);
+}
+
+.icon-clients:hover {
+    transform: scale(1.1) rotate(5deg);
+    box-shadow: 
+        0 0 50px rgba(6, 255, 165, 0.6),
+        inset 0 0 30px rgba(6, 255, 165, 0.2);
+    border-color: rgba(6, 255, 165, 1);
+}
+
+/* Круглая рамка для иконки мастеров (желтая) */
+.icon-masters {
+    background: radial-gradient(circle at 30% 30%, rgba(253, 185, 19, 0.15), rgba(253, 185, 19, 0.05));
+    border: 3px solid var(--construction-yellow);
+    box-shadow: 
+        0 0 30px rgba(253, 185, 19, 0.3),
+        inset 0 0 20px rgba(253, 185, 19, 0.1);
+}
+
+.icon-masters:hover {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 
+        0 0 50px rgba(253, 185, 19, 0.6),
+        inset 0 0 30px rgba(253, 185, 19, 0.2);
+    border-color: rgba(253, 185, 19, 1);
+}
+
+/* Анимация пульсации */
+@keyframes icon-pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.section-icon {
+    animation: icon-pulse 3s ease-in-out infinite;
 }
 
 .section-card:nth-child(2) .section-icon {
-    animation-delay: 0.5s;
+    animation-delay: 1.5s;
 }
 
 .section-title {
@@ -771,6 +833,16 @@ footer {
     .section-card {
         padding: 2.5rem;
     }
+    
+    .section-icon {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .section-icon svg {
+        width: 50px;
+        height: 50px;
+    }
 
     .footer-cta {
         padding: 4rem 4%;
@@ -914,6 +986,17 @@ footer {
 
     .section-card {
         padding: 2rem;
+    }
+    
+    .section-icon {
+        width: 90px;
+        height: 90px;
+        margin-bottom: 1rem;
+    }
+    
+    .section-icon svg {
+        width: 45px;
+        height: 45px;
     }
 
     .section-title {
