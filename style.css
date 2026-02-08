@@ -1565,7 +1565,7 @@ footer {
     }
     
     .section-subtitle {
-        font-size: clamp(0.9rem, 2vw, 1.1rem);
+        font-size: clamp(1rem, 2vw, 1.1rem);
     }
     
     .steps-container {
