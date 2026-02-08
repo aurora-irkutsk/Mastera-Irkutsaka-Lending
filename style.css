@@ -224,7 +224,7 @@ header {
     background: var(--safety-green);
     border-radius: 50%;
     box-shadow: 0 0 10px var(--safety-green), 0 0 20px var(--safety-green);
-    animation: pulse-online 3s ease-in-out infinite;
+    animation: pulse-online 1.5s ease-in-out infinite;
     transition: opacity 0.6s ease, box-shadow 0.6s ease;
 }
 
@@ -251,12 +251,12 @@ header {
     0%, 100% {
         opacity: 1;
         transform: scale(1);
-        box-shadow: 0 0 10px var(--safety-green), 0 0 20px var(--safety-green);
+        box-shadow: 0 0 15px var(--safety-green), 0 0 30px var(--safety-green), 0 0 45px var(--safety-green);
     }
     50% {
-        opacity: 0.3;
+        opacity: 0.6;
         transform: scale(1);
-        box-shadow: 0 0 5px var(--safety-green), 0 0 10px var(--safety-green);
+        box-shadow: 0 0 8px var(--safety-green), 0 0 15px var(--safety-green);
     }
 }
 
