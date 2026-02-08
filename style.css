@@ -1560,6 +1560,14 @@ footer {
     }
     
     /* Адаптив для новых секций */
+    .section-heading {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+    }
+    
+    .section-subtitle {
+        font-size: clamp(0.9rem, 2vw, 1.1rem);
+    }
+    
     .steps-container {
         grid-template-columns: 1fr;
         gap: 1.5rem;
