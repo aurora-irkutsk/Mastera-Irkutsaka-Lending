@@ -195,7 +195,7 @@ header {
 .subtitle {
     font-family: 'Montserrat', sans-serif;
     color: var(--safety-green);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 500;
     margin-top: 0.5rem;
     letter-spacing: 2px;
@@ -640,7 +640,7 @@ header {
 
 .footer-cta-title {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(2.5rem, 5vw, 6rem);
+    font-size:4rem;
     font-weight: 900;
     margin-bottom: 2.5rem;
     color: var(--white);
@@ -650,7 +650,7 @@ header {
 
 .footer-cta-text {
     font-family: 'Montserrat', sans-serif;
-    font-size: clamp(1.3rem, 2.5vw, 3.5rem);
+    font-size: 2rem;
     font-weight: 500;
     color: #e0e0e0;
     margin-bottom: 3rem;
@@ -676,7 +676,7 @@ footer {
 .footer-text {
     font-family: 'Montserrat', sans-serif;
     color: var(--safety-green);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     font-weight: 400;
 }
 
