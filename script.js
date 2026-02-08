@@ -226,3 +226,34 @@ function initOnlineCounter() {
         scheduleNextUpdate();
     }, 5000);
 }
+
+// ============================================
+// FAQ АККОРДЕОН
+// ============================================
+
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    if (faqItems.length === 0) return;
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Закрываем все остальные FAQ
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Переключаем текущий FAQ
+            item.classList.toggle('active');
+        });
+    });
+}
+
+// Инициализация FAQ при загрузке
+document.addEventListener('DOMContentLoaded', () => {
+    initFAQ();
+});
