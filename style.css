@@ -934,8 +934,13 @@ footer {
     }
     
     .online-indicator {
-        width: 10px;
-        height: 10px;
+        width: 8px;
+        height: 8px;
+    }
+    
+    .online-indicator::before,
+    .online-indicator::after {
+        border-width: 1px;
     }
     
     /* Постоянная подсветка карточек на мобильных */
